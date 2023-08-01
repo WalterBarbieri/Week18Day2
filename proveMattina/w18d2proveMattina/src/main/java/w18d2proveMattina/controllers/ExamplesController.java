@@ -89,7 +89,14 @@ public class ExamplesController {
 
 		HttpHeaders header = new HttpHeaders();
 		header.add("CustomHeader", "CustomValue");
-		return new ResponseEntity<User>(body, header, HttpStatus.OK);
+		return new ResponseEntity<User>(body, header, HttpStatus.CREATED);
+	}
+
+	@GetMapping("/customUserResponseExample")
+	public User customUserResponse() {
+		User body = new User(5, "Noce", "Robusto");
+
+		return body;
 	}
 
 }
