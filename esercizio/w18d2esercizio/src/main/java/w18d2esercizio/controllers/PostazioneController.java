@@ -11,10 +11,12 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 
 import w18d2esercizio.entities.Postazione;
+import w18d2esercizio.entities.TipoPostazione;
 import w18d2esercizio.services.PostazioneService;
 
 @RestController
@@ -54,4 +56,12 @@ public class PostazioneController {
 	public void deletePostazioneById(@PathVariable int id) {
 		ps.deletePostazione(id);
 	}
+
+	@GetMapping("/search")
+	@ResponseStatus(HttpStatus.FOUND)
+	public List<Postazione> postazioniFiltrate(@RequestParam TipoPostazione tipoPostazione,
+			@RequestParam String citta) {
+		return ps.getPostazioneByTipoAndCitta(tipoPostazione, citta);
+	}
+
 }

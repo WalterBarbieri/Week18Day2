@@ -5,10 +5,12 @@ import java.util.List;
 import java.util.ListIterator;
 import java.util.Optional;
 import java.util.Random;
+import java.util.stream.Collectors;
 
 import org.springframework.stereotype.Service;
 
 import w18d2esercizio.entities.Postazione;
+import w18d2esercizio.entities.TipoPostazione;
 
 @Service
 public class PostazioneService {
@@ -61,6 +63,11 @@ public class PostazioneService {
 				iterator.remove();
 			}
 		}
+	}
+
+	public List<Postazione> getPostazioneByTipoAndCitta(TipoPostazione tipoPostazione, String citta) {
+		return postazioni.stream().filter(postazione -> postazione.getTipoPostazione() == tipoPostazione
+				&& postazione.getCitta().equalsIgnoreCase(citta)).collect(Collectors.toList());
 	}
 
 }

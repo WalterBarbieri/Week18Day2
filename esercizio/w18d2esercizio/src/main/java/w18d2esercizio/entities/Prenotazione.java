@@ -1,15 +1,16 @@
 package w18d2esercizio.entities;
 
 import java.time.LocalDate;
-import java.util.UUID;
 
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 @Getter
 @Setter
+@NoArgsConstructor
 public class Prenotazione {
-	private UUID id;
+	private int id;
 	private LocalDate giornoPrenotazione;
 	private Postazione postazione;
 	private Utente utente;
