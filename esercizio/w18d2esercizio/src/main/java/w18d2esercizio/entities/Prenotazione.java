@@ -11,9 +11,7 @@ import lombok.Setter;
 public class Prenotazione {
 	private UUID id;
 	private LocalDate giornoPrenotazione;
-
 	private Postazione postazione;
-
 	private Utente utente;
 
 	public Prenotazione(LocalDate giornoPrenotazione, Postazione postazione, Utente utente) {
