@@ -11,7 +11,6 @@ public class Postazione {
 	private TipoPostazione tipoPostazione;
 	private int numeroMassimo;
 	private String citta;
-	private Prenotazione prenotazione;
 
 	public Postazione(String descrizione, TipoPostazione tipoPostazione, int numeroMassimo, String citta) {
 		this.setDescrizione(descrizione);

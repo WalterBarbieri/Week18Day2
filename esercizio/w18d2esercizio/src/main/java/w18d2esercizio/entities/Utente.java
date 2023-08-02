@@ -10,7 +10,6 @@ public class Utente {
 	private String userName;
 	private String nomeCompleto;
 	private String email;
-	private Prenotazione prenotazione;
 
 	public Utente(String userName, String nomeCompleto, String email) {
 		this.setUserName(userName);

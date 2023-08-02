@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 
 import w18d2proveMattina.entities.User;
+import w18d2proveMattina.exceptions.NotFoundException;
 import w18d2proveMattina.services.UserService;
 
 @RestController
@@ -39,13 +40,13 @@ public class UsersController {
 
 	@GetMapping("/{id}")
 	public User getUserById(@PathVariable int id) throws Exception {
-		return us.findById(id).orElseThrow(() -> new Exception("Non trovato"));
+		return us.findById(id).orElseThrow(() -> new NotFoundException(id));
 	}
 
 	@PutMapping("/{id}")
 
 	public User getUserAndUpdate(@PathVariable int id, @RequestBody User body) throws Exception {
-		return us.findByIdAndUpdate(id, body).orElseThrow(() -> new Exception("Non trovato"));
+		return us.findByIdAndUpdate(id, body).orElseThrow(() -> new NotFoundException(id));
 	}
 
 	@DeleteMapping("/{id}")
