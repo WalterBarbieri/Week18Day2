@@ -54,13 +54,13 @@ public class PrenotazioneService {
 		boolean result = prenotazioni.stream()
 				.filter(prenotazione -> prenotazione.getPostazione().getId() == postazioneId)
 				.noneMatch(prenotazione -> prenotazione.getGiornoPrenotazione().equals(giornoPrenotazione));
-		System.out.println("utente disponibile: " + result);
+		System.out.println("postazione disponibile: " + result);
 		return result;
 	}
 
 	public boolean dataInRange(LocalDate giornoPrenotazione) {
 		boolean result = LocalDate.now().isBefore(giornoPrenotazione.minusDays(2));
-		System.out.println("utente disponibile: " + result);
+		System.out.println("Data corretta: " + result);
 		return result;
 	}
 

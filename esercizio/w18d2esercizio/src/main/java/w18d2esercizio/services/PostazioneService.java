@@ -66,8 +66,15 @@ public class PostazioneService {
 	}
 
 	public List<Postazione> getPostazioneByTipoAndCitta(TipoPostazione tipoPostazione, String citta) {
-		return postazioni.stream().filter(postazione -> postazione.getTipoPostazione() == tipoPostazione
-				&& postazione.getCitta().equalsIgnoreCase(citta)).collect(Collectors.toList());
+		List<Postazione> selectedPostazioni = postazioni.stream()
+				.filter(postazione -> postazione.getTipoPostazione() == tipoPostazione
+						&& postazione.getCitta().equalsIgnoreCase(citta))
+				.collect(Collectors.toList());
+		if (!selectedPostazioni.isEmpty()) {
+			return selectedPostazioni;
+		} else {
+			return null;
+		}
 	}
 
 }
